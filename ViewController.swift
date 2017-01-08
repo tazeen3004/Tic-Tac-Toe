@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     var gameIsActive = true
     
+    @IBOutlet weak var label:UILabel!
+    
     @IBAction func action(sender: AnyObject)
     {
         if (gameState[sender.tag-1] == 0 && gameIsActive == true)
@@ -44,10 +46,13 @@ class ViewController: UIViewController {
                 if (gameState[combination[0]] == 1)
                 {
                     //cross has won
+                    label.text = "Player 1 has won"
                 }
                 else
                 {
                     //nought has won
+                    label.text = "Player 2 has won"
+                
                 }
             }
         
@@ -57,8 +62,20 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func playagain(sender: AnyObject)
+    {
+        gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        gameIsActive = true
     
-    
+        for i in 1...9
+        {
+            let button = view.viewWithTag(i) as! UIButton
+                button.setImage(nil, forState: UIControlState())
+            
+        
+        }
+        
+    }
     
         override func viewDidLoad() {
         super.viewDidLoad()
