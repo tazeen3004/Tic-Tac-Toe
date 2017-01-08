@@ -57,7 +57,22 @@ class ViewController: UIViewController {
             }
         
         }
+        gameIsActive = false
         
+        for i in gameState
+        {
+            if (i == 0 )
+            {
+                gameIsActive = true
+                break
+            }
+            
+        }
+        if gameIsActive == false
+        {
+            label.text = "It's a Draw"
+            
+        }
     
     }
     
